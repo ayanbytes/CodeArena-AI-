@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial, Environment, Float } from '@react-three/drei';
 import { motion } from 'framer-motion';
+// @ts-ignore
 import * as random from 'maath/random/dist/maath-random.esm';
 import { ArrowRight, Code2, Cpu, ShieldCheck, Zap } from 'lucide-react';
 

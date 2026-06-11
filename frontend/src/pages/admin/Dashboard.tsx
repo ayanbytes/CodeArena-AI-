@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuthStore } from '../../store/authStore';
-import { LogOut, Plus, Users, Code, Activity, Search, X, Sparkles, PenTool, Database, ChevronRight, Trash2, Download } from 'lucide-react';
-import { getAssessments, generateAssessment, createAssessment, createAssessmentFromBank, getSubmissions, updateAssessment, deleteAssessment } from '../../lib/api';
+import { LogOut, Plus, Users, Code, Activity, Search, X, PenTool, ChevronRight, Trash2, Download } from 'lucide-react';
+import { getAssessments, createAssessmentFromBank, getSubmissions, updateAssessment, deleteAssessment } from '../../lib/api';
 import jsPDF from 'jspdf';
 
 export function AdminDashboard() {
@@ -11,9 +11,7 @@ export function AdminDashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [editingAssessment, setEditingAssessment] = useState<any>(null);
-  const [expandedAssessmentId, setExpandedAssessmentId] = useState<string | null>(null);
   
-  const [creationMode, setCreationMode] = useState<'bank'>('bank');
   const [formData, setFormData] = useState({ topic: '', language: 'Python', title: '', description: '', difficulty: 'Easy', duration_minutes: 60, num_questions: 5, candidate_emails: '' });
   const [isLoading, setIsLoading] = useState(false);
   const [generatedLink, setGeneratedLink] = useState<string | null>(null);

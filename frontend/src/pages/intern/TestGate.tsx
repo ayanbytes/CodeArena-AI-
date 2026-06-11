@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
 import { Mail, ArrowRight, Code } from 'lucide-react';
 import { AssessmentInterface } from './Assessment';
 
 export function TestGate() {
-  const { id } = useParams<{ id: string }>();
   const [email, setEmail] = useState('');
   const [isVerified, setIsVerified] = useState(false);
 

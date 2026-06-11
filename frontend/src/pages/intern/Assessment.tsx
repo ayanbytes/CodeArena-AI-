@@ -7,27 +7,6 @@ import { submitCode, runCode, getAssessmentQuestions } from '../../lib/api';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getAssessment } from '../../lib/api';
 
-const SAMPLE_PROBLEM = {
-  id: "mock-question-uuid",
-  assessment_id: "mock-assessment-uuid",
-  title: "Two Sum",
-  difficulty: "Easy",
-  tags: ["Array", "Hash Table"],
-  description: `Given an array of integers \`nums\` and an integer \`target\`, return indices of the two numbers such that they add up to \`target\`.
-
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
-
-You can return the answer in any order.`,
-  examples: [
-    { input: "nums = [2,7,11,15], target = 9", output: "[0,1]" },
-    { input: "nums = [3,2,4], target = 6", output: "[1,2]" }
-  ],
-  starterCode: {
-    python: "def twoSum(nums, target):\n    # Write your code here\n    pass",
-    javascript: "function twoSum(nums, target) {\n    // Write your code here\n};",
-  }
-};
-
 interface AssessmentInterfaceProps {
   candidateEmail?: string;
 }
