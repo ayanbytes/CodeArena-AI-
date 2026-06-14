@@ -3,13 +3,28 @@ import { Link } from 'react-router-dom';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial, Environment, Float } from '@react-three/drei';
 import { motion } from 'framer-motion';
-// @ts-ignore
-import * as random from 'maath/random/dist/maath-random.esm';
 import { ArrowRight, Code2, Cpu, ShieldCheck, Zap } from 'lucide-react';
+
+function generateSpherePoints(numPoints: number, radius: number) {
+  const points = new Float32Array(numPoints * 3);
+  for (let i = 0; i < numPoints; i++) {
+    const u = Math.random();
+    const v = Math.random();
+    const theta = 2 * Math.PI * u;
+    const phi = Math.acos(2 * v - 1);
+    const x = radius * Math.sin(phi) * Math.cos(theta);
+    const y = radius * Math.sin(phi) * Math.sin(theta);
+    const z = radius * Math.cos(phi);
+    points[i * 3] = x;
+    points[i * 3 + 1] = y;
+    points[i * 3 + 2] = z;
+  }
+  return points;
+}
 
 function ParticleBackground(props: any) {
   const ref = useRef<any>(null);
-  const sphere = useMemo(() => random.inSphere(new Float32Array(5000), { radius: 10 }), []);
+  const sphere = useMemo(() => generateSpherePoints(1666, 10), []);
   
   useFrame((_state, delta) => {
     ref.current.rotation.x -= delta / 10;
