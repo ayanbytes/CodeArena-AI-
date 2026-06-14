@@ -11,6 +11,7 @@ export function AdminDashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [editingAssessment, setEditingAssessment] = useState<any>(null);
+  const [expandedAssessmentId, setExpandedAssessmentId] = useState<string | null>(null);
   
   const [formData, setFormData] = useState({ topic: '', language: 'Python', title: '', description: '', difficulty: 'Easy', duration_minutes: 60, num_questions: 5, candidate_emails: '' });
   const [isLoading, setIsLoading] = useState(false);
