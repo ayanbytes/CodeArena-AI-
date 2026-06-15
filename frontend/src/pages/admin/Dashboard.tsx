@@ -50,8 +50,9 @@ export function AdminDashboard() {
       });
       setGeneratedLink(`${window.location.origin}/test/${newAssessment.id}`);
       fetchData();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Failed to create assessment:', error);
+      alert(`Failed to create assessment: ${error?.response?.data?.detail || error.message || 'Unknown error'}`);
     } finally {
       setIsLoading(false);
     }
